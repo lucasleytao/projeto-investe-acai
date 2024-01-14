@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;700&family=Roboto&family=Roboto+Mono:wght@500&display=swap');
+
+* { /*limpa o style padrão para um poder de customização maior*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px; /*rem múltiplos de 10*/
+    font-family: 'poppins', 'Times New Roman', Times, serif; /*fonte principal e fonte reserva*/
+    scroll-behavior: smooth; /*deixa a rolagem do site mais fluida*/
+}
+
+a {
+    text-decoration: none; /*nenhum*/
+}
+
+a:hover {
+    text-decoration: none; /*nenhum*/
+    transition: .1s ease; /*transicao*/
+    box-shadow: 0 0 1em gold; /*sombra da caixa*/
+}
+
+a[target] {
+    text-decoration: none;
+    display: flex;
+    margin: 3rem;
+    color: white;
+    border: 1px solid gold;
+    padding: 10px;
+    font-size: 1.5rem;
+    border-radius: 10px 10px 10px 10px;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    object-fit: fill; /*ajuste de objeto: preenchimento*/
+}
+
+p {
+    font-size: 1.4rem;
+    margin-top: 5px;
+    line-height: 2.5rem;
+    font-weight: 200;
+    letter-spacing: 0.05rem;
+    text-align: justify;
+}
+
+.rodape { /*elemento pai*/
+    text-align: center;
+    padding: 1%;
+    font-size: medium;
+}
+
+.container {
+    min-height: 100vh; /*altura mínima da porta de visão do usuário*/
+    width: 100%;
+    display: flex; /*mesma disposição em qualque contexto de tela *responsividade / poderia ser também display: absoluto;*/
+    align-items: center;
+    justify-content: center;
+}
+
+.section-title {
+    color: violet;
+    border: 3px solid violet;
+    padding: 3rem;
+    border-radius: 30px 30px 30px 30px;
+    font-size: 4rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-transform: uppercase; /*letra maiúscula*/
+    letter-spacing: 0.2rem;
+    text-align: center;
+}
+
+/*[ Seção de introdução ]*/
+
+#intro {
+    background-image: url(../portfolio/img/capa.jpg);
+    background-size: cover; /*cobrir*/
+    background-position: top center;
+    position: relative; /*responsividade* imagem adaptada em diferentes contextos de telas*/
+    z-index: 1; /*relacionado à opacidade da imagem de fundo (linha 77-78) destaca o conteúdo do id #intro*/
+}
+
+.link {
+    display: flex;
+    justify-content: flex-start; 
+}
+
+#intro h1 {
+    display: block; /*comportamento de bloco na tela*/
+    width: fit-content;
+    font-size: 5rem;
+    position: relative;
+    color: transparent;
+    animation: text_reveal .5s ease forwards; /*forwards = para a frente / daqui pra frente, continua a propriedade da animação*/
+    animation-delay: 1.5s;
+}
+
+#intro h1:nth-child(1) {
+    animation-delay: 0.8s; /*delay de 0.5s (depois) em relação ao <span> linha 75-94*/
+}
+
+#intro h1:nth-child(2) {
+    animation-delay: 1.8s;
+}
+
+#intro h1:nth-child(3) {
+    animation: text_reveal_name .5s ease forwards; /*continua com a propriedade de animação*/
+    animation-delay: 2.8s;
+}
+
+#intro .cta {
+    display: inline-block; /*bloco alinhado*/
+    padding: 10px 30px; /*10x30*/
+    color: white;
+    background-color: transparent;
+    border: 2px solid gold;
+    font-size: 2rem;
+    text-transform: uppercase; /*maiúscula*/
+    letter-spacing: .1rem; /*espaçamento entre letras*/
+    margin-top: 20px;
+    border-radius: 10px 10px 10px 10px;
+}
+
+#intro .cta:hover { /*pseudo classe nativa do CSS e com configurações de ação já pré-definidas*/
+    color: white;
+    /*font-weight: 500; [ peso da fonte ] opcional */
+    background-color: gold;
+    transition: .2s ease;
+    box-shadow: 0 0 1em gold;
+}
+
+#intro h1 span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    animation: text_reveal_box 1s ease; /*ease = sair, acabar*/
+    animation-delay: 0.5s;
+    background-color: violet;
+}
+
+#intro h1:nth-child(1) span { /*[Olá! Tudo Bem?]*/
+    animation-delay: .5s;
+}
+#intro h1:nth-child(2) span { /*[me chamo]*/
+    animation-delay: 1.5s;
+}
+#intro h1:nth-child(3) span { /*[Lucas Leitao]*/
+    animation-delay: 2.5s;
+}
+
+#intro::after { /*configuração de filtro da imagem de fundo*/
+    content: ''; /*não pode ser none, mesmo sendo vazio*/
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black; /*dependendo da imagem, pode ser white*/
+    opacity: 0.5;
+    z-index: -1; /*relacionado ao plano cartesiano xy(z) relacionado à profundidade*/
+}
+
+/*[ seção portfólio ]*/
+
+#portfolio .portfolio {
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+
+#portfolio .portfolio-header h1 {
+    margin-bottom: 50px;
+}
+
+#portfolio .all-projects {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#portfolio .project-item { /*ajustes de tela*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    margin: 20px auto;
+    overflow: hidden; /*controla um conteúdo grande demais, para caber em uma área / hidden = o estouro é cortado, e o restante do conteúdo ficará invisível*/
+    border-radius: 10px;
+}
+
+#portfolio .project-info {
+    padding: 30px;
+    flex-basis: 50%; /*o quanto é aceito para aumentar e diminuir a tela *responsividade*/
+    height: 100%;
+    display: flex;
+    align-items: flex-start; /*começo da coluna*/
+    justify-content: center;
+    flex-direction: column;
+    background-image: linear-gradient(60deg, #6959cd 0%, #191970 100%);
+    color: white;
+}
+
+#portfolio .project-info h1 {
+    font-size: 4rem;
+    font-weight: 500px;
+}
+
+#portfolio .project-info h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+#portfolio .project-img {
+    flex-basis: 50%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+#portfolio .project-img:after {
+    content: '';
+    position: absolute; /*já está vinculada ao elemento pai*/
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /*background-image: linear-gradient(60deg, #485563 0%, #a9a9a9 100%);
+    opacity: 0.2; /*controla o gradiente da imagem*/
+}
+
+#portfolio .project-img img { 
+    transition: 0.5s ease transform; /*deixa a transição do zoom mais lenta*/
+}
+
+#portfolio .project-item:hover .project-img img { /*efeito zoom quando o mouse passa na img, ou a partir do project-item*/
+    transform: scale(1.1);
+}
+
+/*[ seção de keyframes ] depois de criar a animação, deve-se atribuí-la ao seu respectivo seletor*/ 
+
+@keyframes text_reveal { /*revelação do texto*/
+    100% {
+        color: white;
+    }
+}
+
+@keyframes text_reveal_name {
+    100% { /*estado em deve chegar*/
+        color: gold;
+        font-weight: 500px;
+    }
+}
+
+@keyframes text_reveal_box { /*caixa de revelação de texto / controle de propriedades*/
+    50% {
+        width: 100%;
+        left: 0;
+    }
+    100% {
+        width: 0;
+        left: 100%;
+    }
+} 
+
+/*Media Query / regras e estilos específicos para tamanhos de telas diferentes*/
+
+@media screen and (min-width: 768px) {
+    #portfolio .project-item {
+        flex-direction: row;
+        height: 50rem;
+        width: 100%;
+        margin: 4rem;
+        border-radius: 5rem 0 5rem 0; /*borda caixa de projetos*/
+    }
+
+    #portfolio .all-projects .project-info {
+        height: 100%;
+    }
+
+    #portfolio .all-projects .project-img {
+        height: 100%;
+        align-items: center;
+    }
+
+    #portfolio .project-item:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+    
+}
