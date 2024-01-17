@@ -19,7 +19,7 @@ a {
 a:hover {
     text-decoration: none; /*nenhum*/
     transition: .1s ease; /*transicao*/
-    box-shadow: 0 0 1em gold; /*sombra da caixa*/
+    box-shadow: 0 0 1em white; /*sombra da caixa*/
 }
 
 a[target] {
@@ -27,7 +27,7 @@ a[target] {
     display: flex;
     margin: 3rem;
     color: white;
-    border: 1px solid gold;
+    border: 1px solid grey;
     padding: 10px;
     font-size: 1.5rem;
     border-radius: 10px 10px 10px 10px;
@@ -63,8 +63,8 @@ p {
 }
 
 .section-title {
-    color: violet;
-    border: 3px solid violet;
+    color: #46295a;
+    border: 3px solid #46295a;
     padding: 3rem;
     border-radius: 30px 30px 30px 30px;
     font-size: 4rem;
@@ -128,7 +128,7 @@ p {
 
 #intro .cta:hover { /*pseudo classe nativa do CSS e com configurações de ação já pré-definidas*/
     color: white;
-    /*font-weight: 500; [ peso da fonte ] opcional */
+    font-weight: 500; /*[ peso da fonte ] opcional*/
     background-color: gold;
     transition: .2s ease;
     box-shadow: 0 0 1em gold;
@@ -142,7 +142,7 @@ p {
     width: 0%;
     animation: text_reveal_box 1s ease; /*ease = sair, acabar*/
     animation-delay: 0.5s;
-    background-color: violet;
+    background-color: #46295a;
 }
 
 #intro h1:nth-child(1) span { /*[Olá! Tudo Bem?]*/
